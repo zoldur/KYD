@@ -6,7 +6,7 @@ CONFIGFOLDER="/root/.kyd"
 COIN_DAEMON='kydd'
 COIN_CLI='kyd-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_TGZ='https://github.com/kydcoin/KYD/releases/download/1.0.0/kyd-v1.0.0-linux-gnu.tar.gz'
+COIN_TGZ='https://github.com/kydcoin/KYD3/releases/download/v3.2.0.2/kyd-3.2.0.2-Ubuntu16-x86_64.tar.gz'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME="Kyd"
 COIN_PORT=3434
@@ -25,7 +25,7 @@ function download_node() {
   cd $TMP_FOLDER >/dev/null 2>&1
   wget -q $COIN_TGZ
   compile_error
-  tar xvzf $COIN_ZIP -C $COIN_PATH
+  tar xvzf $COIN_ZIP --strip 1 -C $COIN_PATH
   cd - >/dev/null 2>&1
   rm -rf $TMP_FOLDER >/dev/null 2>&1
   clear
